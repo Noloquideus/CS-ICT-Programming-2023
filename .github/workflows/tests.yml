@@ -1,0 +1,49 @@
+name: Run Unit Tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test_ubuntu:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Run unit tests for lab2
+        run: python -m unittest discover tests/test_lab2
+
+      - name: Run unit tests for lab3
+        run: python -m unittest discover tests/test_lab3
+
+      - name: Run unit tests for lab4
+        run: python -m unittest discover tests/test_lab4
+
+  test_windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Run unit tests for lab2
+        run: python -m unittest discover tests/test_lab2
+
+      - name: Run unit tests for lab3
+        run: python -m unittest discover tests/test_lab3
+
+      - name: Run unit tests for lab4
+        run: python -m unittest discover tests/test_lab4
