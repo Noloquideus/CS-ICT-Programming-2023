@@ -1,22 +1,15 @@
+import random
+import math
 from src.lab2.Cipher import Cipher
 
 
 class RSA(Cipher):
 
-    def __init__(self):
+    def __init__(self, key_size=1024):
         super().__init__()
+        self.key_size = key_size
+        self.public_key, self.private_key = self.generate_key_pair()
 
-    def generate_key_pair(self):
-        pass
-
-    def generate_prime_number(self):
-        pass
-
-    def generate_public_key(self):
-        pass
-
-    def generate_private_key(self):
-        pass
 
     def decrypt(self, text):
         pass
