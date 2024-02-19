@@ -1,4 +1,4 @@
-from Cipher import Cipher
+from src.lab2.Cipher import Cipher
 
 
 class CeaserCipher(Cipher):
