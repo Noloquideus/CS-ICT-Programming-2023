@@ -19,5 +19,14 @@ class CeaserCipher(Cipher):
                 encrypted_text += char
         return encrypted_text
 
-    def decrypt(self, **kwargs):
-        pass
+    def decrypt(self, text):
+        decrypted_text = ""
+        for char in text:
+            if char.isalpha():
+                if char.isupper():
+                    decrypted_text += chr((ord(char) - self.shift - ord('A')) % 26 + ord('A'))
+                else:
+                    decrypted_text += chr((ord(char) - self.shift - ord('a')) % 26 + ord('a'))
+            else:
+                decrypted_text += char
+        return decrypted_text
