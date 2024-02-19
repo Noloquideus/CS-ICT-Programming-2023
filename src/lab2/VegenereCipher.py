@@ -7,6 +7,16 @@ class VigenereCipher(Cipher):
         self.key = key
 
     def encrypt(self, text: str) -> str:
+
+        """
+        Encrypts the input text using a key and returns the encrypted text.
+        Args:
+            text (str): The text to be encrypted.
+
+        Returns:
+            str: The encrypted text.
+        """
+
         encrypted_text = ""
         key_length = len(self.key)
 
@@ -26,6 +36,16 @@ class VigenereCipher(Cipher):
         return encrypted_text
 
     def decrypt(self, text: str) -> str:
+
+        """
+        Decrypts the input text using the Vigenère cipher with the provided key.
+        Args:
+            text (str): The text to be decrypted.
+
+        Returns:
+            str: The decrypted text.
+        """
+
         decrypted_text = ""
         key_length = len(self.key)
 
