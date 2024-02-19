@@ -1,8 +1,9 @@
 from src.lab2.Cipher import Cipher
 
 
-class VigenereCipher:
+class VigenereCipher(Cipher):
     def __init__(self, key: str):
+        super().__init__()
         self.key = key
 
     def encrypt(self, text: str) -> str:
