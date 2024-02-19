@@ -8,6 +8,17 @@ class CeaserCipher(Cipher):
         self.shift = shift
 
     def encrypt(self, text):
+
+        """
+        Encrypts the input text using the Caesar cipher with the specified shift.
+
+        Parameters:
+            text (str): The text to be encrypted.
+
+        Returns:
+            str: The encrypted text.
+        """
+
         encrypted_text = ""
         for char in text:
             if char.isalpha():
@@ -19,7 +30,17 @@ class CeaserCipher(Cipher):
                 encrypted_text += char
         return encrypted_text
 
-    def decrypt(self, text):
+    def decrypt(self, text: str) -> str:
+        """
+        Decrypts the given text using the Caesar cipher with the specified shift value.
+
+        Parameters:
+            text (str): The text to be decrypted.
+
+        Returns:
+            str: The decrypted text.
+        """
+
         decrypted_text = ""
         for char in text:
             if char.isalpha():
@@ -30,3 +51,4 @@ class CeaserCipher(Cipher):
             else:
                 decrypted_text += char
         return decrypted_text
+
