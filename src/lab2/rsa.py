@@ -20,6 +20,12 @@ class RSA(Cipher):
                 return False
         return True
 
+    def generate_prime(self, bits):
+        while True:
+            num = random.getrandbits(bits)
+            if self.is_prime(num):
+                return num
+
     def decrypt(self, text):
         pass
 
