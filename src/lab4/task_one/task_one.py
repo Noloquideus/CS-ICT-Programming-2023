@@ -18,7 +18,6 @@ class MovieRecommendedService:
         with open(self.movies_file, 'r') as file:
             lines = file.readlines()
         movies_list = [line.strip().split(',', 1)[1] for line in lines]
-        print(f"Прочитанные фильмы из файла {self.movies_file}:", movies_list)
         return movies_list
 
     @private
@@ -29,7 +28,6 @@ class MovieRecommendedService:
         with open(self.history_file, 'r') as file:
             lines = file.readlines()
         history_list = [list(map(int, line.strip().split(','))) for line in lines]
-        print(f"Прочитанные истории из файла {self.history_file}:", history_list)
         return history_list
 
     def recommend(self, user_history_input: str) -> str:
@@ -67,6 +65,9 @@ class MovieRecommendedService:
         # Select the movie with the maximum number of views
         recommended_movie_id: int = max(movie_views_count, key=movie_views_count.get)
         recommended_movie: str = self.movies_list[recommended_movie_id - 1]
-
-        print(f"\nРекомендуем вам посмотреть: {recommended_movie}")
         return recommended_movie
+
+if __name__ == "__main__":
+    service = MovieRecommendedService()
+    user_history_input = input("Введите историю просмотров пользователя (через запятую): ")
+    recommended_movie = service.recommend(user_history_input)
