@@ -41,6 +41,12 @@ class RSA(Cipher):
             x0, x1 = x1 - q * x0, x0
         return x1 + m0 if x1 < 0 else x1
 
+    def choose_public_exponent(self, phi):
+        e = random.randint(2, phi - 1)
+        while self.gcd(e, phi) != 1:
+            e = random.randint(2, phi - 1)
+        return e
+
     def decrypt(self, text):
         pass
 
