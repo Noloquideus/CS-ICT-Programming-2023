@@ -66,8 +66,3 @@ class MovieRecommendedService:
         recommended_movie_id: int = max(movie_views_count, key=movie_views_count.get)
         recommended_movie: str = self.movies_list[recommended_movie_id - 1]
         return recommended_movie
-
-if __name__ == "__main__":
-    service = MovieRecommendedService()
-    user_history_input = input("Введите историю просмотров пользователя (через запятую): ")
-    recommended_movie = service.recommend(user_history_input)
