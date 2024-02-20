@@ -18,6 +18,9 @@ jobs:
         with:
           python-version: 3.x
 
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
       - name: Run unit tests for lab2
         run: python -m unittest discover tests/test_lab2
 
@@ -38,6 +41,9 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.x
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
       - name: Run unit tests for lab2
         run: python -m unittest discover tests/test_lab2
