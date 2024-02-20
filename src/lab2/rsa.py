@@ -18,7 +18,7 @@ class RSA(Cipher):
         phi = (p - 1) * (q - 1)
         e = self.choose_public_exponent(phi)
         d = self.multiplicative_inverse(e, phi)
-        return ((e, n), (d, n))
+        return (e, n), (d, n)
 
     @staticmethod
     def is_prime(num, test_iterations=10):
@@ -58,8 +58,12 @@ class RSA(Cipher):
             e = random.randint(2, phi - 1)
         return e
 
-    def decrypt(self, text):
-        pass
+    def encrypt(self, message):
+        e, n = self.public_key
+        cipher_text = [pow(ord(char), e, n) for char in message]
+        return cipher_text
 
-    def encrypt(self, text):
-        pass
+    def decrypt(self, cipher_text):
+        d, n = self.private_key
+        plain_text = ''.join([chr(pow(char, d, n)) for char in cipher_text])
+        return plain_text
