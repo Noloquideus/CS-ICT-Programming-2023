@@ -26,6 +26,12 @@ class RSA(Cipher):
             if self.is_prime(num):
                 return num
 
+    @staticmethod
+    def gcd(a, b):
+        while b != 0:
+            a, b = b, a % b
+        return a
+
     def decrypt(self, text):
         pass
 
