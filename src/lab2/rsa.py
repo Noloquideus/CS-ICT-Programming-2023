@@ -6,8 +6,19 @@ from src.lab2.Cipher import Cipher
 
 class RSA(Cipher):
 
-    def __init__(self):
+    def __init__(self, key_size=1024):
         super().__init__()
+        self.key_size = key_size
+        self.public_key, self.private_key = self.generate_keypair()
+
+    def generate_keypair(self):
+        p = self.generate_prime(self.key_size)
+        q = self.generate_prime(self.key_size)
+        n = p * q
+        phi = (p - 1) * (q - 1)
+        e = self.choose_public_exponent(phi)
+        d = self.multiplicative_inverse(e, phi)
+        return ((e, n), (d, n))
 
     @staticmethod
     def is_prime(num, test_iterations=10):
